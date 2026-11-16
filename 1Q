@@ -1,0 +1,69 @@
+# Questao 1 - Leitura e Validacao das Notas
+
+notas = []
+
+# for i in range(6)
+nota = float(input(f"Digite a nota do aluno {i + 1}: "))
+
+# while nota < 0 or nota > 10
+print("Nota invalida! Digite uma nota entre 0 e 10.")
+nota + float(input(f"Digite a nota do aluno {i + 1}: "))
+
+notas.append(nota)
+
+print ("\nNotas Armazenadas:")
+for nota in notas:
+   print(nota)
+
+# Questao 2 - Calculo da Media e Filtragem
+
+soma = 0
+
+for nota in notas:
+   soma += nota
+
+media = soma / 6
+
+acima_igual = 0
+
+print("\nMedia geral:", media)
+
+for nota in notas:
+   if nota >= media:
+    acima_igual += 1
+else:
+   print ("Nota abaixo da media:", nota)
+
+print("Quantidade de alunos acima ou igual a media:", acima_igual)
+
+#Questao 3 - Recuperacao e Atualizacao
+
+for i in range(6):
+  if notas [i] < media:
+     print(f"\nAluno {i + 1} precisa fazer recuperacao.")
+
+     nota_recuperacao = float(input("Digite a nota de recuperacao: "))
+
+while nota_recuperacao < 0 or nota_recuperacao > 10:
+        print ("Nota invalida! Digite uma nota entre 0 e 10.")
+        nota_recuperacao = float(input("Digite a nota de recuperacao: "))
+
+      #   if nota_recuperacao > notas[i]
+notas[i] = nota_recuperacao
+
+   # Exibindo o vetor atualizado
+
+print ("\nNotas atualizadas:")
+for nota in notas:
+      print(nota)
+
+# Calculando a nova media
+
+nova_soma = 0
+
+for nota in notas:
+  nova_soma += nota
+
+nova_media = nova_soma / 6
+
+print ("/nNova media geral da turma:", nova_media)
