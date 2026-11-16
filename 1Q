@@ -67,3 +67,90 @@ for nota in notas:
 nova_media = nova_soma / 6
 
 print ("/nNova media geral da turma:", nova_media)
+
+QUESTÃO 2
+
+QUESTAO 1 - REGISTRO DE TEMPERATURAS
+
+temperaturas = []
+
+dias = ["Domingo", "Segunda-feira", "Terca-feira",
+        "Quarta-feira", "Quinta-feira", "Sexta-feira",
+        "Sabado"]
+
+for i in range(7):
+    temperatura = float(input(f"Digite a temperatura de {dias[i]}: "))
+
+    while temperatura < -10 or temperatura > 50:
+        print("Temperatura invalida! Digite um valor entre -10 e 50.")
+        temperatura = float(input(f"Digite novamente a temperatura de {dias[i]}: "))
+
+    temperaturas.append(temperatura)
+
+# Exibindo as temperaturas registradas
+
+print("\nTemperaturas registradas:")
+
+for i in range(7):
+    print(dias[i], ":", temperaturas[i], "C")
+
+
+# QUESTAO 2 - ANALISE CLIMATICA E ALERTAS
+
+maior = temperaturas[0]
+menor = temperaturas[0]
+indice_maior = 0
+alertas = 0
+
+for i in range(7):
+
+    if temperaturas[i] > maior:
+        maior = temperaturas[i]
+        indice_maior = i
+
+    if temperaturas[i] < menor:
+        menor = temperaturas[i]
+
+    if temperaturas[i] > 32:
+        alertas += 1
+
+# Exibindo o relatorio climatico
+
+print("\nRELATORIO CLIMATICO DA SEMANA")
+
+print("Maior temperatura:", maior, "C")
+print("Menor temperatura:", menor, "C")
+print("Quantidade de alertas de calor:", alertas)
+print("Dia da maior temperatura:", dias[indice_maior])
+
+QUESTÃO 3
+
+# QUESTAO 3 - SIMULACAO DE FRENTE FRIA
+
+for i in range(7):
+
+    if temperaturas[i] > 30.0:
+
+        temperaturas[i] = temperaturas[i] - 4.5
+
+        if temperaturas[i] < 15.0:
+            temperaturas[i] = 15.0
+
+# Exibindo as temperaturas atualizadas
+
+print("\nTEMPERATURAS APOS A FRENTE FRIA")
+
+for i in range(7):
+    print(dias[i], ":", temperaturas[i], "C")
+
+# Calculando a nova media
+
+soma = 0
+
+for i in range(7):
+    soma += temperaturas[i]
+
+nova_media = soma / 7
+
+print("\nNova media de temperatura:", nova_media, "C")
+
